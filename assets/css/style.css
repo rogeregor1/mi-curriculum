@@ -1,18 +1,31 @@
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  @font-face {
+    font-family: "MondayFeelings";
+    src: url("../fonts/MondayFeelings-7BD2l.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "SuperFoods";
+    src: url("../fonts/SuperFoods-2OxXo.ttf") format("truetype");
+  }
+ 
 /* ================================
    Variables globales
 ================================ */
 :root {
-    --default-font: "Roboto", sans-serif;
-    --heading-font: "Raleway", sans-serif;
-    --nav-font: "Poppins", sans-serif;
+    --default-font: "Gill Sans Extrabold", Helvetica, sans-serif;
+    --heading-font: "MondayFeelings", serif;
+    --nav-font: "SuperFoods", sans-serif;
 
     /* Colores */
     --heading-color: #a75ce4;
     --background-color: #936d9d;
-    --default-color: #444444;
+    --default-color: #795d7a;
     --color-primario: #007BFF;
-    --color-primario-hover: #0056b3;
+    --color-primario-hover: #b707c1;
     --color-eliminar: #e5717d;
     --color-eliminar-hover: #db3e4e;
     --color-guardar: #28a745;
@@ -29,44 +42,33 @@
 /* ================================
    Estilo Global
 ================================ */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 body {
-    padding: 10px;
-    margin: 0;
+    max-width: 700px;
+}
+.container-general{
+    width: 100%;
+    height: auto;
+    position: absolute;
     text-align: left;
-    align-content: center;
     color: var(--default-color);
     background-color: var(--background-color);
     font-family: var(--default-font);
 }
-
 /* ================================
    Header
 ================================ */
 header {
-    top: 0%;
+    top: 0px;
     position: fixed;
-    width: 78%;
-    height: 12%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    width: 76%;
+    height: 8%;
+    display: block;
+    align-content: center;
     background-color: cornsilk;
     border-radius: 5px;
-    padding: 10px;
+    padding: 0  40px;
     z-index: 10;
 }
-
-.container-fluid {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
 
 .navmenu {
     align-content: space-between;
@@ -88,62 +90,55 @@ header {
 /* ================================
    main
 ================================ */
+.contenedor-main{
+    top: 0px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
 main {
-    top: 12%;
-    position: absolute;
-    gap: 9px;
-    margin: 10px 0;
-    z-index: 5;
+    float: left;
 }
 
 /* ================================
    Section
 ================================ */
 section {
-    float: inline-start;
     flex: 5;
-    padding: 10px 60px;
+    padding: 10px 40px;
     background-color: #f9f9f9;
-    width: 79%;
-    min-height: calc(100vh - 82px);
-    position: relative;
-    align-items: center;
-    justify-content: center;
+    width: 78%;
+    height: auto;
     border-radius: 5px;
-    margin-bottom: 1%;
 }
 
 section img {
-    position: absolute;
-    inset: 0;
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 1;
 }
 
 /* ================================
    Aside
 ================================ */
 aside {
-    top: 0%;
-    right: 0%;
     position: fixed;
-    width: 20%;
-    height: auto;
+    float: left;
+    right: 0%;
+    width: 23%;
+    height: 100vh;
     background-color: burlywood;
-    padding: 8px;
+    padding: 5px 8px;
     border-radius: 5px;
-}
-.aside-container{
-    overflow: scroll;
+    z-index: 10;
 }
 .social-links a {
     margin-right: 10px;
     color: var(--default-color);
 }
-aside .social-links {
+aside.social-links {
     display: flex;
     justify-content: space-between;
 }
@@ -155,9 +150,9 @@ ul li {
    Footer
 ================================ */
 footer {
-    bottom: 0%;
+    bottom: 0px;
     position: fixed;
-    width: 78%;
+    width: 76%;
     height: 8%;
     text-align: center;
     background-color: cornsilk;
@@ -165,15 +160,19 @@ footer {
     z-index: 10;
 }
 
-
 /* ================================
    Formulario Contacto
 ================================ */
-.contenedor {
-    border: 1px solid #ccc;
+.contact-section {
+    background-color: rgb(243, 232, 250);
+  }
+
+.contenedor-form {
+    border: 1px solid transparent;
     border-radius: 5px;
-    margin: 30px 0;
-    padding: 20px;
+    margin: 10px 0;
+    padding: 1%;
+    margin-bottom: 5%;
 }
 
 .form-table {
@@ -185,7 +184,7 @@ footer {
     font-size: 18px;
     font-family: monospace;
     background-color: burlywood;
-    padding: 10px;
+    padding: 1px;
 }
 
 .tabla td {
@@ -222,7 +221,6 @@ input {
     font-size: 14px;
     border: 2px solid #999898;
     border-radius: 4px;
-    box-sizing: border-box;
 }
 
 /* Estilo general para botones */
@@ -284,4 +282,64 @@ p {
     font-family: 'Franklin Gothic Medium';
 }
 
+  /* Cambiar el color y fondo al pasar el mouse */
+  label:hover {
+    color: rgb(117, 63, 187);
+    /* Color del texto al pasar */
+  }
+  input:focus {
+    background-color: rgb(233, 218, 252);
+    border-color: rgb(117, 63, 187);
+    outline: none;
+  }
+
+  .form-botones {
+    text-align: center;
+    margin-top: 20px;
+  }
+  /* Estilo específico para botón "Actualizar" */
+  .btn-submit {
+    padding: 3% 15%;
+    background-color: var(--color-guardar);
+  }
+  .btn-submit:hover {
+    background-color: var(--color-guardar-hover);
+    color: rgb(255, 242, 128);
+  }
+  textarea {
+    border-radius: 5px;
+    border: 2px solid rgb(168, 166, 166);
+  }
+  textarea:focus {
+    background-color: rgb(233, 218, 252);
+    border-radius: 5px;
+    border: 2px solid rgb(117, 63, 187);
+    outline: none;
+  }
+
+  /* Cambiar el tamaño del párrafo al pasar el cursor */
+  p:hover {
+    transform: scale(1.1);
+    /* Aumentar el tamaño al 110% */
+    transition: transform 0.3s ease-in-out;
+    /* Suavizar la animación */
+    text-align: left;
+  }
+
+  /* valores por defecto del párrafo último cuando el mouse pasa sobre el */
+  footer p:hover {
+    transform: none;
+    text-align: center;
+  }
+
+  /* Cambio el estilo de la primera letra en los párrafos pares */
+  p:nth-of-type(2n + 1)::first-letter {
+    font: bold italic large serif;
+    color: #b451fb;
+  }
+
+  /* Cambiar el color del tercer párrafo */
+  p:nth-of-type(2) {
+    color: rgb(89, 48, 143);
+  }
 
