@@ -63,9 +63,9 @@
               >Profile</span
             ></a
           >
-          <a href="#home">Home</a>
           <a href="#resume">Resumen</a>
           <a href="#contact">Contacto</a>
+          <a href="#encuesta">Encuesta</a>
         </nav>
       </header>
 
@@ -257,8 +257,45 @@
             </div>
           </section>
 
-          <section class="add-section">
-            <br>
+          <section id="encuesta" class="whatapp-section">
+            <div class="table">
+              <h3>Encuesta</h3>
+              <label>Valoración de la visita:</label>
+              <form id="ratingForm">
+                <div class="table-row">
+                  <div class="table-cell">
+                    <label
+                      >Excelente<input
+                        type="radio"
+                        name="rating"
+                        value="excelente"
+                        required
+                      />
+                    </label>
+                    <label
+                      >Buena<input type="radio" name="rating" value="buena" />
+                    </label>
+                    <label
+                      >Regular<input
+                        type="radio"
+                        name="rating"
+                        value="regular"
+                      />
+                    </label>
+                    <label
+                      >Mala<input type="radio" name="rating" value="mala" />
+                    </label>
+                  </div>
+                </div>
+                <div class="table-row">
+                  <div class="table-cell" colspan="2">
+                    <button id="whatsapp" type="submit">
+                      Enviar Valoración
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
           </section>
         </main>
         <aside>
@@ -418,6 +455,33 @@
                 "¡Ups! Algo salió mal. Por favor, inténtalo de nuevo.";
             });
         });
+
+      // Manejar el envío del formulario de valoración a WhatsApp
+      ratingForm.addEventListener("submit", (event) => {
+        event.preventDefault(); // Evita el envío real del formulario
+
+        // Capturar la valoración seleccionada
+        const rating = document.querySelector(
+          'input[name="rating"]:checked'
+        ).value;
+
+        // Número de teléfono de WhatsApp (reemplaza con tu número en formato internacional)
+        const phoneNumber = "34665411711"; // Número de España con prefijo internacional
+
+        // Crear el mensaje
+        const whatsappMessage = `Hola, quiero compartir mi valoración de la visita: ${rating}.`;
+
+        // Crear el enlace de WhatsApp
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+          whatsappMessage
+        )}`;
+
+        // Redirigir al enlace de WhatsApp
+        window.open(whatsappURL, "_blank");
+
+        // Mostrar mensaje de agradecimiento
+        alert("¡Gracias por tu valoración!");
+      });
     </script>
   </body>
 </html>
